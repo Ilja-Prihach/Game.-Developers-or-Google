@@ -3,7 +3,10 @@ import {ShogunNumberUtility} from "./shogun-number-utility.js";
 
 export class   Game {
     #settings = {
-        gridSize: new GridSize(4, 4),
+        gridSize: {
+            rowsCount: 4,
+            columnsCount: 4,
+        },
         googleJumpInterval: 1000
     }
 
@@ -11,7 +14,7 @@ export class   Game {
     #googlePosition = null
     #player1Position = null
     #player2Position = null
-    #googleJumpCount = 0;
+    #googleJumpCount = 0;        // ← новое поле для счетчика
     #jumpIntervalId = null;
 
     /**
@@ -37,10 +40,6 @@ export class   Game {
         return this.#settings.gridSize;
     }
 
-    set gridSize(value) {
-        this.#settings.gridSize = value;
-    }
-
     get googlePosition() {
         return this.#googlePosition;
     }
@@ -51,15 +50,6 @@ export class   Game {
     get player2Position() {
         return this.#player2Position;
     }
-    /**
-     * Sets the grid size for the game
-     *
-     * @param {GridSize} value - The new grid size to set
-     */
-    set gridSize(value) {
-        this.#settings.gridSize = value;
-    }
-
 
     start() {
         if (this.#status !== GameStatuses.SETTINGS) {
@@ -67,8 +57,8 @@ export class   Game {
         }
         this.#status = GameStatuses.IN_PROGRESS;
         this.#googleJumpCount = 0;
-        this.#placePlayer1ToGrid();
-        this.#placePlayer2ToGrid();
+        this.#startPositionPlayer1();
+        this.#startPositionPlayer2();
         this.#makeGoogleJump()
         this.#jumpIntervalId = setInterval(() => {
             this.#makeGoogleJump()
@@ -79,20 +69,20 @@ export class   Game {
             }
         }, this.#settings.googleJumpInterval);
     }
-    #placePlayer1ToGrid() {
+    #startPositionPlayer1() {
         const newPosition = {
             x: this.#shogunNumberUtility.getRandomInteger(0, this.#settings.gridSize.columnsCount),
             y: this.#shogunNumberUtility.getRandomInteger(0, this.#settings.gridSize.rowsCount),
         }
         this.#player1Position = newPosition;
     }
-    #placePlayer2ToGrid() {
+    #startPositionPlayer2() {
         const newPosition = {
             x: this.#shogunNumberUtility.getRandomInteger(0, this.#settings.gridSize.columnsCount),
             y: this.#shogunNumberUtility.getRandomInteger(0, this.#settings.gridSize.rowsCount),
         }
         if (newPosition.x === this.#player1Position?.x && newPosition.y === this.#player1Position?.y) {
-            this.#placePlayer2ToGrid();
+            this.#startPositionPlayer2();
             return;
         }
         this.#player2Position = newPosition;
@@ -110,63 +100,5 @@ export class   Game {
         }
         this.#googlePosition = newPosition;
     }
-    //todo: movedirection to constans
-    movePlayer(playerNumber, moveDirection) {
 
-        const position = this['player' + playerNumber + 'Position']
-        let newPosition;
-        switch (moveDirection) {
-            case 'UP' : {
-                newPosition = {
-                    x: position.x,
-                    y: position.y - 1
-                }
-                break;
-            }
-            case 'DOWN' : {
-                newPosition = {
-                    x: position.x,
-                    y: position.y + 1
-                }
-                break;
-            }
-            case 'RIGHT' : {
-                newPosition = {
-                    x: position.x + 1,
-                    y: position.y
-                }
-                break;
-            }
-            case 'LEFT' : {
-                newPosition = {
-                    x: position.x - 1,
-                    y: position.y
-                }
-                break;
-            }
-        }
-        if(
-            newPosition.x >= this.gridSize.columnsCount ||
-            newPosition.x < 0 ||
-            newPosition.y >= this.gridSize.rowsCount ||
-            newPosition.y < 0
-        ) {
-            return
-        }
-        //  this['#position.player' + playerNumber] = newPosition
-
-        if (playerNumber === 1) {
-            this.#player1Position = newPosition;
-        } else {
-            this.#player2Position = newPosition;
-        }
-    }
-
-}
-
-class GridSize  {
-    constructor(rowsCount = 4,  columnsCount = 4) {
-        this.rowsCount = rowsCount;
-        this.columnsCount = columnsCount;
-    }
 }

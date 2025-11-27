@@ -2,7 +2,6 @@ import {Game} from "./game.js";
 import {GameStatuses} from "../GAME_STATUSES.js";
 import {ShogunNumberUtility} from "./shogun-number-utility.js";
 
-
 describe('game', () => {
     it('should have Pending status after creating', () => {
         const game = new Game();
@@ -153,45 +152,6 @@ describe('game', () => {
 
         // После 10 прыжков игра должна завершиться
         expect(game.status).toBe(GameStatuses.LOSE)
-    })
-
-    it('player should be ove in  correct directions', async () => {
-        //const numberUtil = new ShogunNumberUtility()
-        const fakeNumberUtility = {
-            index: 0,
-            values: [
-                2,2,
-                1,2,
-                0,0
-            ],
-            getRandomInteger(from, to) {
-                return this.values[this.index++]
-            }
-        }
-        const game = new Game(fakeNumberUtility);
-        game.gridSize = {columnsCount: 3, rowsCount: 3}
-        game.start()
-        expect(game.player1Position).toEqual({x:2, y:2})
-        game.movePlayer(1, 'RIGHT')
-        expect(game.player1Position).toEqual({x:2, y:2})
-        game.movePlayer(1, 'DOWN')
-        expect(game.player1Position).toEqual({x:2, y:2})
-        game.movePlayer(1, 'UP')
-        expect(game.player1Position).toEqual({x:2, y:1})
-        game.movePlayer(1, 'UP')
-        expect(game.player1Position).toEqual({x:2, y:0})
-        game.movePlayer(1, 'LEFT')
-        expect(game.player1Position).toEqual({x:1, y:0})
-        game.movePlayer(1, 'UP')
-        expect(game.player1Position).toEqual({x:1, y:0})
-        game.movePlayer(1, 'LEFT')
-        expect(game.player1Position).toEqual({x:0, y:0})
-        game.movePlayer(1, 'DOWN')
-        expect(game.player1Position).toEqual({x:0, y:1})
-        game.movePlayer(1, 'LEFT')
-        expect(game.player1Position).toEqual({x:0, y:1})
-        game.movePlayer(1, 'RIGHT')
-        expect(game.player1Position).toEqual({x:1, y:1})
     })
 })
 
