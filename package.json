@@ -20,5 +20,8 @@
       "^.+\\.[tj]sx?$": "babel-jest"
     },
     "testEnvironment": "node"
+  },
+  "dependencies": {
+    "ws": "^8.18.3"
   }
 }

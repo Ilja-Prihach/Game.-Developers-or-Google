@@ -19,6 +19,18 @@ export class View {
                 case 'ArrowRight':
                     this.onplayermove?.(1, 'RIGHT');
                     break;
+                case 'KeyW':
+                    this.onplayermove?.(2, 'UP');
+                    break;
+                case 'KeyS':
+                    this.onplayermove?.(2, 'DOWN');
+                    break;
+                case 'KeyA':
+                    this.onplayermove?.(2, 'LEFT');
+                    break;
+                case 'KeyD':
+                    this.onplayermove?.(2, 'RIGHT');
+                    break;
                 default:
                     return
             }

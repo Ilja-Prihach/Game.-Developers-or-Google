@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a1743e2a-9b9d-43b5-afe3-7a4d5f21679a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/controller.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/view.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back/back.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/ilja_prihach/Desktop/React-TS/game",
+    "last_opened_file_path": "/Users/ilja_prihach/Desktop/React-TS/game/ui",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,6 +60,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ui" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -160,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764107164014</updated>
-      <workItem from="1764107165173" duration="61899000" />
+      <workItem from="1764107165173" duration="71465000" />
     </task>
     <servers />
   </component>

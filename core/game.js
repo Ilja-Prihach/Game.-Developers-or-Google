@@ -22,6 +22,7 @@ export class   Game {
     #googleJumpCount = 0;
     #jumpIntervalId = null;
 
+
     /**
      * @type ShogunNumberUtility
      */
