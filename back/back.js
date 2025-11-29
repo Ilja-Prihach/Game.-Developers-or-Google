@@ -14,6 +14,8 @@ function  createDTO(){
         googlePosition: game.googlePosition,
         player1Position: game.player1Position,
         player2Position: game.player2Position,
+        player1CaughtCount: game.player1CaughtCount,
+        player2CaughtCount: game.player2CaughtCount
     }
     return dto;
 }

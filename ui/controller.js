@@ -32,6 +32,8 @@ export class Controller {
             googlePosition: this.#model.googlePosition,
             player1Position: this.#model.player1Position,
             player2Position: this.#model.player2Position,
+            player1CaughtCount: this.#model.player1CaughtCount,
+            player2CaughtCount: this.#model.player2CaughtCount,
         }
         this.#view.render(dto)
     }

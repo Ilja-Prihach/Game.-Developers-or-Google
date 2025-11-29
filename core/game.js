@@ -21,7 +21,8 @@ export class   Game {
     #player2Position = null
     #googleJumpCount = 0;
     #jumpIntervalId = null;
-
+    #player1CaughtCount = 0;
+    #player2CaughtCount = 0;
 
     /**
      * @type ShogunNumberUtility
@@ -61,6 +62,12 @@ export class   Game {
     get player2Position() {
         return this.#player2Position;
     }
+    get Player1CaughtCount() {
+        return this.#player1CaughtCount;
+    }
+    get Player2CaughtCount() {
+        return this.#player2Position
+    }
     /**
      * Sets the grid size for the game
      *
@@ -78,6 +85,8 @@ export class   Game {
         }
         this.#status = GameStatuses.IN_PROGRESS;
         this.#googleJumpCount = 0;
+        this.#player1CaughtCount = 0;
+        this.#player2CaughtCount = 0;
         this.#placePlayer1ToGrid();
         this.#placePlayer2ToGrid();
         this.#makeGoogleJump()
@@ -122,7 +131,29 @@ export class   Game {
             this.#makeGoogleJump();
             return;
         }
+        //this.#checkGoogleCaught(playerNumber)
         this.#googlePosition = newPosition;
+    }
+    #checkGoogleCaught(playerNumber) {
+        const playerPosition = this['player' + playerNumber + 'Position'];
+        if (this.googlePosition &&
+            playerPosition.x === this.#googlePosition.x &&
+            playerPosition.y === this.#googlePosition.y
+        ) {
+            if (playerNumber === 1) {
+                this.#player1CaughtCount++
+            } else {
+                this.#player2CaughtCount++
+            }
+        }
+        if (this.#player1CaughtCount >= 20) {
+            this.#status = GameStatuses.WIN
+        } else if(this.#player2CaughtCount >= 20) {
+            this.#status = GameStatuses.WIN
+        } else {
+            this.#makeGoogleJump()
+        }
+        this.#notify()
     }
     //todo: movedirection to constans
     movePlayer(playerNumber, moveDirection) {

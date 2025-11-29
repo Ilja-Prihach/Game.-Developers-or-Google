@@ -54,6 +54,12 @@ export class GameProxy {
     get player2Position() {
         return this.#stateCache.player2Position
     }
+    get player1CaughtCount() {
+        return this.#stateCache.player1CaughtCount
+    }
+    get player2CaughtCount() {
+        return this.#stateCache.player2CaughtCount
+    }
     /**
      * Sets the grid size for the game
      *
@@ -66,7 +72,9 @@ export class GameProxy {
 
     start() {
         const action = {type: 'start'}
-        this.#wsChannel.send(JSON.stringify(action))
+        setTimeout(() => {
+            this.#wsChannel.send(JSON.stringify(action))
+        }, 100)
     }
 
 
