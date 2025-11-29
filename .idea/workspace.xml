@@ -1,4 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a1743e2a-9b9d-43b5-afe3-7a4d5f21679a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ui/controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/view.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/core/game.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="35zJrFeBRtoe5PzIGsg0XgNbWHP" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Jest.SamuraiNumberUtility.executor": "Run",
+    "Jest.SamuraiNumberUtility.returns an integer withing range.executor": "Run",
+    "Jest.SamuraiNumberUtility.throws error when parameters are not numbers.executor": "Run",
+    "Jest.game (1).executor": "Run",
+    "Jest.game.executor": "Run",
+    "Jest.game.google should be in the Grid after start.executor": "Run",
+    "Jest.game.google should be in the Grid but in new position after jump.executor": "Run",
+    "Jest.game.player should be ove in  correct directions.executor": "Run",
+    "Jest.game.players should be in the Grid after start.executor": "Run",
+    "Jest.game.should have InProgress status after creating (1).executor": "Run",
+    "Jest.game.should have InProgress status after creating.executor": "Run",
+    "Jest.game.should have Pending status after creating.executor": "Run",
+    "Jest.game.should say hello world (1).executor": "Run",
+    "Jest.game.should say hello world.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/ilja_prihach/Desktop/React-TS/game",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "/Users/ilja_prihach/Desktop/React-TS/game/node_modules/jest",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ui" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/../game2" />
+      <recent name="$PROJECT_DIR$/game2" />
+      <recent name="$PROJECT_DIR$/core" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.game">
+    <configuration name="game" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/core/game.test.js" />
+      <test-names>
+        <test-name value="game" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="game.google should be in the Grid after start" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/core/game.test.js" />
+      <test-names>
+        <test-name value="game" />
+        <test-name value="google should be in the Grid after start" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="game.player should be ove in  correct directions" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/core/game.test.js" />
+      <test-names>
+        <test-name value="game" />
+        <test-name value="player should be ove in  correct directions" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="game.players should be in the Grid after start" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/core/game.test.js" />
+      <test-names>
+        <test-name value="game" />
+        <test-name value="players should be in the Grid after start" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="game.should have InProgress status after creating (1)" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/core/game.test.js" />
+      <test-names>
+        <test-name value="game" />
+        <test-name value="should have InProgress status after creating" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.game" />
+        <item itemvalue="Jest.game.player should be ove in  correct directions" />
+        <item itemvalue="Jest.game.players should be in the Grid after start" />
+        <item itemvalue="Jest.game.google should be in the Grid after start" />
+        <item itemvalue="Jest.game.should have InProgress status after creating (1)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-WS-251.25410.117" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1743e2a-9b9d-43b5-afe3-7a4d5f21679a" name="Changes" comment="" />
+      <created>1764107164014</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764107164014</updated>
+      <workItem from="1764107165173" duration="61899000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>

@@ -7,6 +7,14 @@ export class   Game {
         googleJumpInterval: 1000
     }
 
+    #observers = []
+    subscribe(observerFunction) {
+        this.#observers.push(observerFunction)
+    }
+    #notify() {
+        this.#observers.forEach(o => o())
+    }
+
     #status = GameStatuses.SETTINGS
     #googlePosition = null
     #player1Position = null
@@ -27,6 +35,7 @@ export class   Game {
             throw new Error('Google Jump interval must be a positive number')
         }
         this.#settings.googleJumpInterval = value;
+        this.#notify()
     }
 
     get status() {
@@ -58,6 +67,7 @@ export class   Game {
      */
     set gridSize(value) {
         this.#settings.gridSize = value;
+        this.#notify()
     }
 
 
@@ -70,14 +80,17 @@ export class   Game {
         this.#placePlayer1ToGrid();
         this.#placePlayer2ToGrid();
         this.#makeGoogleJump()
+        this.#notify()
         this.#jumpIntervalId = setInterval(() => {
             this.#makeGoogleJump()
+            this.#notify()
             this.#googleJumpCount++
             if (this.#googleJumpCount >= 10) {
                 clearInterval(this.#jumpIntervalId)
                 this.#status = GameStatuses.LOSE
             }
         }, this.#settings.googleJumpInterval);
+        this.#notify()
     }
     #placePlayer1ToGrid() {
         const newPosition = {
@@ -160,6 +173,7 @@ export class   Game {
         } else {
             this.#player2Position = newPosition;
         }
+        this.#notify()
     }
 
 }
