@@ -7,7 +7,7 @@ const numberUtil = new ShogunNumberUtility()
 const game = new Game(numberUtil);
 //game.start()
 
-function  createDTO(){
+function createDTO(){
     const dto = {
         status: game.status,
         gridSize: game.gridSize,
@@ -15,7 +15,11 @@ function  createDTO(){
         player1Position: game.player1Position,
         player2Position: game.player2Position,
         player1CaughtCount: game.player1CaughtCount,
-        player2CaughtCount: game.player2CaughtCount
+        player2CaughtCount: game.player2CaughtCount,
+        totalCaughtCount: game.totalCaughtCount,
+        googleEscapeCount: game.googleEscapeCount,
+        pointsToWin: game.pointsToWin,
+        pointsToLose: game.pointsToLose
     }
     return dto;
 }
@@ -36,6 +40,10 @@ wss.on('connection', (channel) => {
             }
             case 'move-player': {
                 game.movePlayer(action.payload.playerNumber, action.payload.moveDirection);
+                break;
+            }
+            case 'update-settings': {
+                game.updateSettings(action.payload || {});
                 break;
             }
         }

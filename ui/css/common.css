@@ -19,8 +19,8 @@
 }
 
 .cell {
-    width: 85px;
-    height: 84px;
+    width: var(--cell-size, 85px);
+    height: var(--cell-size, 84px);
     border-radius: 5px;
     border: 2px solid #999B95;
     background: rgba(110, 117, 102, 0.30);
@@ -28,4 +28,3 @@
     text-align: center;
     vertical-align: middle;
 }
-

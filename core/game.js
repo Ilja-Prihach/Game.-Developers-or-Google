@@ -1,10 +1,12 @@
 import {GameStatuses} from "../GAME_STATUSES.js";
 import {ShogunNumberUtility} from "./shogun-number-utility.js";
 
-export class   Game {
+export class Game {
     #settings = {
         gridSize: new GridSize(4, 4),
-        googleJumpInterval: 1000
+        googleJumpInterval: 1000,
+        pointsToWin: 20,
+        pointsToLose: 10
     }
 
     #observers = []
@@ -48,8 +50,14 @@ export class   Game {
         return this.#settings.gridSize;
     }
 
+    /**
+     * Sets the grid size for the game
+     *
+     * @param {GridSize} value - The new grid size to set
+     */
     set gridSize(value) {
         this.#settings.gridSize = value;
+        this.#notify()
     }
 
     get googlePosition() {
@@ -62,26 +70,68 @@ export class   Game {
     get player2Position() {
         return this.#player2Position;
     }
-    get Player1CaughtCount() {
+    get player1CaughtCount() {
         return this.#player1CaughtCount;
     }
-    get Player2CaughtCount() {
-        return this.#player2Position
+    get player2CaughtCount() {
+        return this.#player2CaughtCount;
     }
-    /**
-     * Sets the grid size for the game
-     *
-     * @param {GridSize} value - The new grid size to set
-     */
-    set gridSize(value) {
-        this.#settings.gridSize = value;
+    get totalCaughtCount() {
+        return this.#player1CaughtCount + this.#player2CaughtCount;
+    }
+    get googleEscapeCount() {
+        return this.#googleJumpCount;
+    }
+    get pointsToWin() {
+        return this.#settings.pointsToWin;
+    }
+    get pointsToLose() {
+        return this.#settings.pointsToLose;
+    }
+
+    updateSettings({gridSize, pointsToWin, pointsToLose, googleJumpInterval}) {
+        if (this.#status !== GameStatuses.SETTINGS) {
+            return;
+        }
+
+        if (gridSize) {
+            if (!Number.isInteger(gridSize.rowsCount) || gridSize.rowsCount <= 0 ||
+                !Number.isInteger(gridSize.columnsCount) || gridSize.columnsCount <= 0) {
+                throw new Error('Grid size must be positive integers')
+            }
+            this.#settings.gridSize = new GridSize(gridSize.rowsCount, gridSize.columnsCount);
+        }
+
+        if (pointsToWin !== undefined) {
+            if (!Number.isInteger(pointsToWin) || pointsToWin <= 0) {
+                throw new Error('Points to win must be a positive integer')
+            }
+            this.#settings.pointsToWin = pointsToWin;
+        }
+
+        if (pointsToLose !== undefined) {
+            if (!Number.isInteger(pointsToLose) || pointsToLose <= 0) {
+                throw new Error('Points to lose must be a positive integer')
+            }
+            this.#settings.pointsToLose = pointsToLose;
+        }
+
+        if (googleJumpInterval !== undefined) {
+            if (!Number.isInteger(googleJumpInterval) || googleJumpInterval <= 0) {
+                throw new Error('Google Jump interval must be a positive number')
+            }
+            this.#settings.googleJumpInterval = googleJumpInterval;
+        }
+
         this.#notify()
     }
 
-
     start() {
-        if (this.#status !== GameStatuses.SETTINGS) {
-            throw  new Error('Game must be in Settings before start')
+        if (this.#status === GameStatuses.IN_PROGRESS) {
+            return;
+        }
+        if (this.#jumpIntervalId !== null) {
+            clearInterval(this.#jumpIntervalId)
         }
         this.#status = GameStatuses.IN_PROGRESS;
         this.#googleJumpCount = 0;
@@ -92,13 +142,18 @@ export class   Game {
         this.#makeGoogleJump()
         this.#notify()
         this.#jumpIntervalId = setInterval(() => {
+            if (this.#status !== GameStatuses.IN_PROGRESS) {
+                return;
+            }
             this.#makeGoogleJump()
-            this.#notify()
             this.#googleJumpCount++
-            if (this.#googleJumpCount >= 10) {
+            if (this.#googleJumpCount >= this.#settings.pointsToLose) {
                 clearInterval(this.#jumpIntervalId)
                 this.#status = GameStatuses.LOSE
+                this.#notify()
+                return;
             }
+            this.#notify()
         }, this.#settings.googleJumpInterval);
         this.#notify()
     }
@@ -131,7 +186,6 @@ export class   Game {
             this.#makeGoogleJump();
             return;
         }
-        //this.#checkGoogleCaught(playerNumber)
         this.#googlePosition = newPosition;
     }
     #checkGoogleCaught(playerNumber) {
@@ -146,10 +200,11 @@ export class   Game {
                 this.#player2CaughtCount++
             }
         }
-        if (this.#player1CaughtCount >= 20) {
+        if (this.totalCaughtCount >= this.#settings.pointsToWin) {
             this.#status = GameStatuses.WIN
-        } else if(this.#player2CaughtCount >= 20) {
-            this.#status = GameStatuses.WIN
+            if (this.#jumpIntervalId !== null) {
+                clearInterval(this.#jumpIntervalId)
+            }
         } else {
             this.#makeGoogleJump()
         }
@@ -157,6 +212,9 @@ export class   Game {
     }
     //todo: movedirection to constans
     movePlayer(playerNumber, moveDirection) {
+        if (this.#status !== GameStatuses.IN_PROGRESS) {
+            return;
+        }
 
         const position = this['player' + playerNumber + 'Position']
         let newPosition;
@@ -205,6 +263,12 @@ export class   Game {
         } else {
             this.#player2Position = newPosition;
         }
+
+        if (this.#googlePosition && newPosition.x === this.#googlePosition.x && newPosition.y === this.#googlePosition.y) {
+            this.#checkGoogleCaught(playerNumber);
+            return;
+        }
+
         this.#notify()
     }
 

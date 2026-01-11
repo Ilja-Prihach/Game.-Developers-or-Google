@@ -3,6 +3,7 @@ import {GameStatuses} from "../GAME_STATUSES.js";
 export class View {
     onstart = null;
     onplayermove = null;
+    onsettingschange = null;
 
     constructor(){
          document.addEventListener('keyup', (e) => {
@@ -42,6 +43,30 @@ export class View {
                 this.onstart?.();
             }
         }
+
+        const gridSizeSelect = document.getElementById('01');
+        const pointsToWinSelect = document.getElementById('02');
+        const pointsToLoseSelect = document.getElementById('03');
+
+        const settingsHandler = () => {
+            const gridSize = Number.parseInt(gridSizeSelect?.value || '', 10);
+            const pointsToWin = Number.parseInt(pointsToWinSelect?.value || '', 10);
+            const pointsToLose = Number.parseInt(pointsToLoseSelect?.value || '', 10);
+
+            if (!Number.isInteger(gridSize) || !Number.isInteger(pointsToWin) || !Number.isInteger(pointsToLose)) {
+                return;
+            }
+
+            this.onsettingschange?.({
+                gridSize: {rowsCount: gridSize, columnsCount: gridSize},
+                pointsToWin,
+                pointsToLose
+            });
+        };
+
+        gridSizeSelect?.addEventListener('change', settingsHandler);
+        pointsToWinSelect?.addEventListener('change', settingsHandler);
+        pointsToLoseSelect?.addEventListener('change', settingsHandler);
     }
 
     render(dto) {
@@ -80,8 +105,8 @@ export class View {
     #updateStats(dto) {
         const catchElements = document.querySelectorAll('.result-block .result');
         if (catchElements.length >= 2) {
-            catchElements[0].textContent = dto.player1CaughtCount || 0;
-            catchElements[1].textContent = dto.player2CaughtCount || 0;
+            catchElements[0].textContent = dto.totalCaughtCount || 0;
+            catchElements[1].textContent = dto.googleEscapeCount || 0;
         }
     }
 
@@ -89,40 +114,40 @@ export class View {
         const modals = document.querySelectorAll('.modal');
 
         modals.forEach(modal => {
-            modal.style.display = 'none';
+            modal.classList.remove('is-open');
         });
 
-        if (dto.status === 'WIN') {
-            const winModal = document.querySelector('.modal:first-child');
+        if (dto.status === GameStatuses.WIN) {
+            const winModal = document.querySelector('.modal-win');
             if (winModal) {
-                winModal.style.display = 'block';
+                winModal.classList.add('is-open');
                 const modalResults = winModal.querySelectorAll('.result-block .result');
                 if (modalResults.length >= 2) {
-                    modalResults[0].textContent = dto.player1CaughtCount || 0;
-                    modalResults[1].textContent = dto.player2CaughtCount || 0;
+                    modalResults[0].textContent = dto.totalCaughtCount || 0;
+                    modalResults[1].textContent = dto.googleEscapeCount || 0;
                 }
 
                 const playAgainButton = winModal.querySelector('.button');
                 if (playAgainButton) {
                     playAgainButton.onclick = () => {
-                        location.reload();
+                        this.onstart?.();
                     };
                 }
             }
-        } else if (dto.status === 'LOSE') {
-            const loseModal = document.querySelector('.modal:last-child');
+        } else if (dto.status === GameStatuses.LOSE) {
+            const loseModal = document.querySelector('.modal-lose');
             if (loseModal) {
-                loseModal.style.display = 'block';
+                loseModal.classList.add('is-open');
                 const modalResults = loseModal.querySelectorAll('.result-block .result');
                 if (modalResults.length >= 2) {
-                    modalResults[0].textContent = dto.player1CaughtCount || 0;
-                    modalResults[1].textContent = dto.player2CaughtCount || 0;
+                    modalResults[0].textContent = dto.totalCaughtCount || 0;
+                    modalResults[1].textContent = dto.googleEscapeCount || 0;
                 }
 
                 const playAgainButton = loseModal.querySelector('.button');
                 if (playAgainButton) {
                     playAgainButton.onclick = () => {
-                        location.reload();
+                        this.onstart?.();
                     };
                 }
             }

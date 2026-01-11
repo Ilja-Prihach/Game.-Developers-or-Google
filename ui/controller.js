@@ -21,6 +21,10 @@ export class Controller {
             this.#model.start();
             this.#render()
         }
+
+        this.#view.onsettingschange = (settings) => {
+            this.#model.updateSettings(settings)
+        }
     }
     init() {
         this.#render()
@@ -34,6 +38,10 @@ export class Controller {
             player2Position: this.#model.player2Position,
             player1CaughtCount: this.#model.player1CaughtCount,
             player2CaughtCount: this.#model.player2CaughtCount,
+            totalCaughtCount: this.#model.totalCaughtCount,
+            googleEscapeCount: this.#model.googleEscapeCount,
+            pointsToWin: this.#model.pointsToWin,
+            pointsToLose: this.#model.pointsToLose,
         }
         this.#view.render(dto)
     }

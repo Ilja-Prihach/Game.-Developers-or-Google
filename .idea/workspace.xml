@@ -15,45 +15,45 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="35zJrFeBRtoe5PzIGsg0XgNbWHP" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Jest.SamuraiNumberUtility.executor": "Run",
-    "Jest.SamuraiNumberUtility.returns an integer withing range.executor": "Run",
-    "Jest.SamuraiNumberUtility.throws error when parameters are not numbers.executor": "Run",
-    "Jest.game (1).executor": "Run",
-    "Jest.game.executor": "Run",
-    "Jest.game.google should be in the Grid after start.executor": "Run",
-    "Jest.game.google should be in the Grid but in new position after jump.executor": "Run",
-    "Jest.game.player should be ove in  correct directions.executor": "Run",
-    "Jest.game.players should be in the Grid after start.executor": "Run",
-    "Jest.game.should have InProgress status after creating (1).executor": "Run",
-    "Jest.game.should have InProgress status after creating.executor": "Run",
-    "Jest.game.should have Pending status after creating.executor": "Run",
-    "Jest.game.should say hello world (1).executor": "Run",
-    "Jest.game.should say hello world.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/ilja_prihach/Desktop/React-TS/game/ui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "/Users/ilja_prihach/Desktop/React-TS/game/node_modules/jest",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest.SamuraiNumberUtility.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SamuraiNumberUtility.returns an integer withing range.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.SamuraiNumberUtility.throws error when parameters are not numbers.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.google should be in the Grid after start.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.google should be in the Grid but in new position after jump.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.player should be ove in  correct directions.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.players should be in the Grid after start.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.should have InProgress status after creating (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.should have InProgress status after creating.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.should have Pending status after creating.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.should say hello world (1).executor&quot;: &quot;Run&quot;,
+    &quot;Jest.game.should say hello world.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ilja_prihach/Desktop/React-TS/game/ui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/ilja_prihach/Desktop/React-TS/game/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/ui" />
@@ -156,7 +156,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1764107164014</updated>
-      <workItem from="1764107165173" duration="80401000" />
+      <workItem from="1764107165173" duration="86785000" />
+      <workItem from="1764623438006" duration="2000" />
+      <workItem from="1765125293725" duration="64000" />
+      <workItem from="1765134060656" duration="3741000" />
     </task>
     <servers />
   </component>
